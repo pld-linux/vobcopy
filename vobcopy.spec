@@ -9,6 +9,7 @@ Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://lpn.rnbhq.org/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	6cf44ef4fd424f0c58121423dd010ea1
 URL:		http://www.linux-programming-newbie.org/projects/c/c.html
 BuildRequires:	libdvdread-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
