@@ -1,6 +1,6 @@
 #
-# _with_lfs	enable largefile support (for files larger than 2GB)
-
+# _without_lfs	disable largefile support (for files larger than 2GB)
+#
 Summary:	Tool to copy selected titles from dvd to disk
 Summary(pl):	Program do kopiowania wybranych tytu³ów z dvd na dysk
 Name:		vobcopy
@@ -30,9 +30,11 @@ ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 %setup -q
 
 %build
-# lfs should be on by default?
-./configure.sh %{?_with_lfs:--with-lfs}
-%{__make} %{!?_with_lfs:disable_lfs}
+./configure.sh \
+	%{!?_without_lfs:--with-lfs}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
