@@ -1,8 +1,8 @@
-# 
+#
 # _with_lfs	enable largefile support (for files larger than 2GB)
 
-Summary:	tool to copy selected titles from dvd to disk
-Summary(pl):	program do kopiowania wybranych tytu³ów z dvd na dysk
+Summary:	Tool to copy selected titles from dvd to disk
+Summary(pl):	Program do kopiowania wybranych tytu³ów z dvd na dysk
 Name:		vobcopy
 Version:	0.5.5
 Release:	2
@@ -14,23 +14,21 @@ BuildRequires:	libdvdread-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-
-Vobcopy pozwala na skopiowanie z DVD plików wideo przepakowanych fizycznie
-na nowo, tak aby ka¿dy logiczny ci±g wideo (e.g. jeden odcinek serialu na
-p³ycie na której s± cztery) by³ w jednym pliku (lub ich ci±gu), gotowy do
-u¿ycia przez programy do obróbki wideo.
+Vobcopy lets you copy video files from DVD to disk in such a way that
+each logical video stream (e.g. episode of a series on disc where are
+four of these) is copied to one file, ready to use by video editing
+tools.
 
 %description -l pl
-
-Vobcopy lets you copy video files from DVD to disk in such a way that each
-logical video stream (e.g. episode of a series on disc where are four of
-these) is copied to one file, ready to use by video editing tools.
+Vobcopy pozwala na skopiowanie z DVD plików wideo przepakowanych
+fizycznie na nowo, tak aby ka¿dy logiczny ci±g wideo (np. jeden
+odcinek serialu na p³ycie na której s± cztery) by³ w jednym pliku (lub
+ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 
 %prep
 %setup -q
 
 %build
-
 sh ./configure
 %{__make} %{!?_with_lfs:disable_lfs}
 
@@ -40,7 +38,6 @@ install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
 
 install vobcopy $RPM_BUILD_ROOT/%{_bindir}
 install vobcopy.1 $RPM_BUILD_ROOT/%{_mandir}/man1
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
