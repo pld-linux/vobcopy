@@ -1,8 +1,11 @@
+# 
+# _with_lfs	enable largefile support (for files larger than 2GB)
+
 Summary:	tool to copy selected titles from dvd to disk
 Summary(pl):	program do kopiowania wybranych tytu³ów z dvd na dysk
 Name:		vobcopy
 Version:	0.5.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
 Source0:	http://lpn.rnbhq.org/download/%{name}-%{version}.tar.bz2
@@ -29,7 +32,7 @@ these) is copied to one file, ready to use by video editing tools.
 %build
 
 sh ./configure
-%{__make}
+%{__make} %{!?_with_lfs:disable_lfs}
 
 %install
 rm -rf $RPM_BUILD_ROOT
