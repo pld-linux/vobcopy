@@ -1,77 +1,49 @@
-Summary:	-
-Summary(pl):	-
-Name:		-
-Version:	-
-Release:	-
-Epoch:		-
-License:	- (enter GPL/LGPL/BSD/BSD-like/other license name here)
-Group:		-
-Vendor:		-
-Icon:		-
-Source0:	%{name}-%{version}.tar.gz
-Source1:	-
-Patch0:		-
-URL:		-
-BuildRequires:	-
-PreReq:		-
-Requires:	-
-Requires(pre,post):	-
-Requires(preun):	-
-Requires(postun):	-
-Provides:	-
-Obsoletes:	-
-Conflicts:	-
+Summary:	tool to copy selected titles from dvd to disk
+Summary(pl):	program do kopiowania wybranych tytu³ów z dvd na dysk
+Name:		vobcopy
+Version:	0.5.5
+Release:	1
+License:	GPL
+Group:		Applications
+Source0:	http://lpn.rnbhq.org/download/%{name}-%{version}.tar.bz2
+URL:		http://www.linux-programming-newbie.org/projects/c/c.html
+BuildRequires:	libdvdread-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 
+Vobcopy pozwala na skopiowanie z DVD plików wideo przepakowanych fizycznie
+na nowo, tak aby ka¿dy logiczny ci±g wideo (e.g. jeden odcinek serialu na
+p³ycie na której s± cztery) by³ w jednym pliku (lub ich ci±gu), gotowy do
+u¿ycia przez programy do obróbki wideo.
+
 %description -l pl
 
-%package subpackage
-Summary:	-
-Summary(pl):	-
-Group:		-
-
-%description subpackage
-
-%description subpackage -l pl
+Vobcopy lets you copy video files from DVD to disk in such a way that each
+logical video stream (e.g. episode of a series on disc where are four of
+these) is copied to one file, ready to use by video editing tools.
 
 %prep
-%setup -q -n %{name}-%{version}.orig -a 1
-%patch0 -p1
+%setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
+
+sh ./configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+install vobcopy $RPM_BUILD_ROOT/%{_bindir}
+install vobcopy.1 $RPM_BUILD_ROOT/%{_mandir}/man1
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%pre
-
-%preun
-
-%post
-
-%postun
-
 %files
 %defattr(644,root,root,755)
-%doc README ChangeLog
+%doc README Changelog FAQ TODO Release-Notes *.txt
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
-
-%files subpackage
-%defattr(644,root,root,755)
-%doc extras/*.gz
-%{_datadir}/%{name}-ext
+%attr(644,root,root) %{_mandir}/man1/*
