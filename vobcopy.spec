@@ -1,5 +1,6 @@
 #
-# _without_lfs	disable largefile support (for files larger than 2GB)
+# Conditional build:
+%bcond_without	lfs	# disable largefile support (for files larger than 2GB)
 #
 Summary:	Tool to copy selected titles from dvd to disk
 Summary(pl):	Program do kopiowania wybranych tytu³ów z dvd na dysk
@@ -31,7 +32,7 @@ ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 
 %build
 ./configure.sh \
-	%{!?_without_lfs:--with-lfs}
+	%{?with_lfs:--with-lfs}
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}"
