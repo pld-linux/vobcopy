@@ -36,10 +36,10 @@ ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_bindir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-install vobcopy $RPM_BUILD_ROOT/%{_bindir}
-install vobcopy.1 $RPM_BUILD_ROOT/%{_mandir}/man1
+install vobcopy $RPM_BUILD_ROOT%{_bindir}
+install vobcopy.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
