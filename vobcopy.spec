@@ -4,12 +4,12 @@
 Summary:	Tool to copy selected titles from dvd to disk
 Summary(pl):	Program do kopiowania wybranych tytu³ów z dvd na dysk
 Name:		vobcopy
-Version:	0.5.7
+Version:	0.5.10
 Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://lpn.rnbhq.org/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	6cf44ef4fd424f0c58121423dd010ea1
+# Source0-md5:	dc2f5cfb2bb2b626aeb9053ccd329b76
 URL:		http://www.linux-programming-newbie.org/projects/c/c.html
 BuildRequires:	libdvdread-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
