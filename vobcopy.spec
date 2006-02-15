@@ -5,12 +5,12 @@
 Summary:	Tool to copy selected titles from dvd to disk
 Summary(pl):	Program do kopiowania wybranych tytu³ów z dvd na dysk
 Name:		vobcopy
-Version:	0.5.10
+Version:	0.5.16
 Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://lpn.rnbhq.org/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc2f5cfb2bb2b626aeb9053ccd329b76
+# Source0-md5:	b36267dd8bc5b4aabb1ac1217fc8183b
 URL:		http://www.linux-programming-newbie.org/projects/c/c.html
 BuildRequires:	libdvdread-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,7 +31,7 @@ ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 %setup -q
 
 %build
-./configure.sh \
+sh configure.sh \
 	%{?with_lfs:--with-lfs}
 %{__make} \
 	CC="%{__cc}" \
@@ -39,16 +39,18 @@ ich ci±gu), gotowy do u¿ycia przez programy do obróbki wideo.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/{man1,de/man1}}
 
 install vobcopy $RPM_BUILD_ROOT%{_bindir}
 install vobcopy.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install vobcopy.1.de $RPM_BUILD_ROOT%{_mandir}/de/man1/vobcopy.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README Changelog TODO Release-Notes *.txt
+%doc Changelog README Release-Notes *.txt TODO
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %{_mandir}/man1/*
+%{_mandir}/man1/*
+%lang(de) %{_mandir}/de/man1/*
