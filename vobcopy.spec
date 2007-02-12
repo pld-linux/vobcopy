@@ -3,7 +3,7 @@
 %bcond_without	lfs	# disable largefile support (for files larger than 2GB)
 #
 Summary:	Tool to copy selected titles from dvd to disk
-Summary(pl.UTF-8):   Program do kopiowania wybranych tytułów z dvd na dysk
+Summary(pl.UTF-8):	Program do kopiowania wybranych tytułów z dvd na dysk
 Name:		vobcopy
 Version:	0.5.16
 Release:	1
