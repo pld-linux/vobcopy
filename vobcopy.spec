@@ -3,7 +3,7 @@
 %bcond_without	lfs	# disable largefile support (for files larger than 2GB)
 #
 Summary:	Tool to copy selected titles from dvd to disk
-Summary(pl):	Program do kopiowania wybranych tytu≥Ûw z dvd na dysk
+Summary(pl.UTF-8):   Program do kopiowania wybranych tytu≈Ç√≥w z dvd na dysk
 Name:		vobcopy
 Version:	0.5.16
 Release:	1
@@ -21,11 +21,11 @@ each logical video stream (e.g. episode of a series on disc where are
 four of these) is copied to one file, ready to use by video editing
 tools.
 
-%description -l pl
-Vobcopy pozwala na skopiowanie z DVD plikÛw wideo przepakowanych
-fizycznie na nowo, tak aby kaødy logiczny ci±g wideo (np. jeden
-odcinek serialu na p≥ycie na ktÛrej s± cztery) by≥ w jednym pliku (lub
-ich ci±gu), gotowy do uøycia przez programy do obrÛbki wideo.
+%description -l pl.UTF-8
+Vobcopy pozwala na skopiowanie z DVD plik√≥w wideo przepakowanych
+fizycznie na nowo, tak aby ka≈ºdy logiczny ciƒÖg wideo (np. jeden
+odcinek serialu na p≈Çycie na kt√≥rej sƒÖ cztery) by≈Ç w jednym pliku (lub
+ich ciƒÖgu), gotowy do u≈ºycia przez programy do obr√≥bki wideo.
 
 %prep
 %setup -q
